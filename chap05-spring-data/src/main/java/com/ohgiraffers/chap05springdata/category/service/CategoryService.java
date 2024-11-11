@@ -88,4 +88,13 @@ public class CategoryService {
         // 위에서 category 없는 경우를 걸러줬기 때문에 성공을 염두에 두고 return true!
         return true;
     }
+
+    public Integer findByCategory(int code) {
+
+        Category category = categoryRespository.findByCategoryCode(code);
+        if(Objects.isNull(category)) {
+            return null;
+        }
+        return category.getCategoryCode();
+    }
 }
